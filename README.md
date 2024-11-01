@@ -59,6 +59,8 @@ The config file on [here](./yaml-file/datahub-values.yaml)
 ```
 helm upgrade --install datahub datahub/datahub -f ./yaml-file/datahub-values.yaml
 ```
+
+![alt text](./images/listPod.png)
 ### 5. Check DataHub UI with LoadBalancer
 Get the `URL LoadBalancer` and check `EXTERNAL-IP` of `svc/datahub-datahub-frontend`
 ```
@@ -74,3 +76,4 @@ kubectl get svc
 ```
 Open the browser with `Neo4J LoadBalancer URL`:`7474`
 
+![alt text](./images/Neo4J_UI.png)
