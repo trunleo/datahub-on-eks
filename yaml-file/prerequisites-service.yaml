@@ -2,11 +2,11 @@
 # Copy this file and update to the configuration of choice
 elasticsearch:
   # set this to false, if you want to provide your own ES instance.
-  enabled: false
+  enabled: true
 
   # If you're running in production, set this to 3 and comment out antiAffinity below
   # Or alternatively if you're running production, bring your own ElasticSearch
-  replicas: 1
+  replicas: 3
   minimumMasterNodes: 1
   # Set replicas to 1 and uncomment this to allow the instance to be scheduled on
   # a master node when deploying on a single node Minikube / Kind / etc cluster.
@@ -76,14 +76,14 @@ opensearch:
 # see https://neo4j.com/docs/operations-manual/current/kubernetes/ for more information
 # source: https://github.com/neo4j/helm-charts
 neo4j:
-  enabled: false
+  enabled: true
   nameOverride: neo4j
   neo4j:
     name: neo4j
     edition: "community"
     acceptLicenseAgreement: "yes"
     defaultDatabase: "graph.db"
-    password: "datahub"
+    password: "datahubneo4j"
     # For better security, add password to neo4j-secrets k8s secret with: neo4j-username, neo4j-password, and NEO4J_AUTH then uncomment below
     # NEO4J_AUTH: should be composed like so: {Username}/{Password}
     # passwordFromSecret: neo4j-secrets
@@ -103,16 +103,15 @@ neo4j:
   # Create a volume for neo4j, SSD storage is recommended
   volumes:
     data:
-      mode: "defaultStorageClass"
-      # mode: "dynamic"
-      # dynamic:
-      #   storageClassName: managed-csi-premium
+      mode: "dynamic"
+      dynamic:
+        storageClassName: gp3
 
   env:
     NEO4J_PLUGINS: '["apoc"]'
 
 mysql:
-  enabled: false
+  enabled: true
   image:
     tag: 8.0.32-debian-11-r26
   auth:
@@ -161,10 +160,10 @@ gcloud-sqlproxy:
         port: 3306
 
 cp-helm-charts:
-  enabled: false
+  enabled: true
   # Schema registry is under the community license
   cp-schema-registry:
-    enabled: false
+    enabled: true
     kafka:
       # <<release-name>>-kafka:9092
       bootstrapServers: "prerequisites-kafka:9092"
