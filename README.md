@@ -34,6 +34,18 @@ variable "public_subnets_id" {
 ```
 vpc_id                   = "vpc-000000"
 ```
+
+* Update Kubernetes cluster
+
+Replace the parameters on [connect-eks-cluster](./connect-eks-cluster.sh) to update K8s cluster
+```
+export cluster_name="cluster-name"
+export region="ap-southeast-1"
+```
+Run command
+```
+aws eks --region $region update-kubeconfig --name $cluster_name
+```
 ### 2. Create secret on EKS cluster
 Assuming kubectl context points to the correct kubernetes cluster, first create kubernetes secrets that contain `MySQL and Neo4j passwords`
 ```
