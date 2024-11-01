@@ -1,7 +1,9 @@
 # Deploy DataHub on AWS EKS
 
 ## Introduction
-DataHub allows you to enable simple and scalable access to distributed data for computation, and to publish a dataset and make it available to a specific community, or worldwide, across federated sites.
+DataHub is a 3rd generation data catalog that enables Data Discovery, Collaboration, Governance, and end-to-end Observability that is built for the Modern Data Stack. DataHub employs a model-first philosophy, with a focus on unlocking interoperability between disparate tools & systems.
+
+The figures below describe the high-level architecture of DataHub.
 ![alt text](./images/Architecture.png)
 
 ## Quick-start
