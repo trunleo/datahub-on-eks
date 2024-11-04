@@ -26,6 +26,15 @@ DataHub comes with a single metadata service (gms) as part of the open source re
 
 The federated services communicate with the central search index and graph using Kafka, to support global search and discovery while still enabling decoupled ownership of metadata. This kind of architecture is very amenable for companies who are implementing data mesh.
 
+# Components
+## 1. Metadata Store
+## 2. Metadata Models
+## 3. Ingestion Framework
+## 4. GraphQL API
+## 5. User Interface
+
+
+
 # Quick-start
 
 ## Preperation
