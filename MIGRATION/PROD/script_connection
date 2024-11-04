@@ -1,8 +1,0 @@
-sudo ssh -i "PROD-CAB-BASTION-HOST.pem" ec2-user@18.141.234.241
-
-sudo ssh -i "CABK00D0T01.pem" ubuntu@10.39.1.194
-
-aws s3 sync s3://cab-backup-database/BAKONG-DB/FULL/ ./cab-backup-file 
-
-pg_restore -U postgres -d auth_update --no-owner --no-privileges --verbose 202403071401_pg_auth_backup.tar
-
