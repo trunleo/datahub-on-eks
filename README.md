@@ -1,19 +1,10 @@
 # RENOVA - DATA PROJECT
 
-<table>
-        <tr>
-            <th>Platform</th>
-            <th>Client</th>
-            <th>Link</th>
-        </tr>
-        <tr>
-            <td>Databricks</td>
-            <td>YODY</td>
-<td> 
+The general repository for `Renova Data team`. The project will be managed `branch` as below:
 
-[Link](https://github.com/renova-cloud/renova-data/tree/main/databricks/yody) 
-</td>
-        </tr>
-</table>
-
+**Project - Branch mapping**
+|No.| Client | Project | Branch name | Noted
+|------|----------|----------|----------|-------| 
+|1| **YODY**    | Databricks   | yody/ref | References|
+|2| **VINMEC**    | Data Platform   | vinmec/datahub | Deploy DataHub on EKS
 
