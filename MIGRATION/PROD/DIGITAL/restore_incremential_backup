@@ -1,0 +1,45 @@
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFONLINE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFONLINE_20240228.BAK';
+
+exec msdb.dbo.rds_task_status @task_id=1;
+
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFARCHIVE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFARCHIVE_20240228_TESTING.BAK';
+
+exec msdb.dbo.rds_task_status @task_id=2;
+
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFARCHIVE_UPDATE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFARCHIVE_20240228_TESTING.BAK',
+@type='FULL',
+@with_norecovery=1;
+
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFARCHIVE_UPDATE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFARCHIVE_20240307_DIF.BAK',
+@type='DIFFERENTIAL',
+@with_norecovery=0;
+
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFONLINE_UPDATE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFONLINE_20240228.BAK',
+@type='FULL',
+@with_norecovery=1;
+
+exec msdb.dbo.rds_restore_database
+@restore_db_name='BFONLINE_UPDATE',
+@s3_arn_to_restore_from='arn:aws:s3:::cab-backup-database/DIGITAL-DB/FULL/BFONLINE_20240307_DIF.BAK',
+@type='DIFFERENTIAL',
+@with_norecovery=0;
+
+exec msdb.dbo.rds_task_status @task_id=9
+
+EXECUTE msdb.dbo.rds_drop_database  N'BFONLINE'
+
+
+EXEC rdsadmin.dbo.rds_modify_db_name N'BFONLINE_UPDATE', N'BFONLINE'
+EXEC rdsadmin.dbo.rds_modify_db_name N'BFARCHIVE_UPDATE', N'BFARCHIVE'
+
+GO

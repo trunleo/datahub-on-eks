@@ -1,0 +1,37 @@
+{
+  "AlarmName": "CABAPCHUAT04_CPUUTILIZATION_TESTING_2",
+  "AlarmDescription": "## THE CPU UTILIZATION OF CABAPCHUAT04 SERVER",
+  "AWSAccountId": "993931401632",
+  "AlarmConfigurationUpdatedTimestamp": "2024-01-18T03:30:42.217+0000",
+  "NewStateValue": "ALARM",
+  "NewStateReason": "Threshold Crossed: 1 out of the last 1 datapoints [8.786638834812027 (18/01/24 03:25:00)] was greater than or equal to the threshold (5.0) (minimum 1 datapoint for OK -> ALARM transition).",
+  "StateChangeTime": "2024-01-18T03:31:02.029+0000",
+  "Region": "Asia Pacific (Singapore)",
+  "AlarmArn": "arn:aws:cloudwatch:ap-southeast-1:993931401632:alarm:CABAPCHUAT04_CPUUTILIZATION_TESTING_2",
+  "OldStateValue": "INSUFFICIENT_DATA",
+  "OKActions": [],
+  "AlarmActions": [
+      "arn:aws:sns:ap-southeast-1:993931401632:sns-lambda-trigger"
+  ],
+  "InsufficientDataActions": [],
+  "Trigger": {
+      "MetricName": "CPUUtilization",
+      "Namespace": "AWS/EC2",
+      "StatisticType": "Statistic",
+      "Statistic": "AVERAGE",
+      "Unit": null,
+      "Dimensions": [
+          {
+              "value": "i-0d3ea931e07272736",
+              "name": "InstanceId"
+          }
+      ],
+      "Period": 60,
+      "EvaluationPeriods": 1,
+      "DatapointsToAlarm": 1,
+      "ComparisonOperator": "GreaterThanOrEqualToThreshold",
+      "Threshold": 5,
+      "TreatMissingData": "missing",
+      "EvaluateLowSampleCountPercentile": ""
+  }
+}
