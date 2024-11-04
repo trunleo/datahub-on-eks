@@ -1,19 +1,8 @@
-# RENOVA - DATA PROJECT
+# YODY References
 
-<table>
-        <tr>
-            <th>Platform</th>
-            <th>Client</th>
-            <th>Link</th>
-        </tr>
-        <tr>
-            <td>Databricks</td>
-            <td>YODY</td>
-<td> 
+**1. Sample data pipeline**
 
-[Link](https://github.com/renova-cloud/renova-data/tree/main/databricks/yody) 
-</td>
-        </tr>
-</table>
+[Data source](databricks/yody/output) 
 
+[Pipeline](databricks/yody/pipeline)
 
